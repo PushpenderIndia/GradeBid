@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Marketplace Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#007AFF",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#1C1C1E",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.75rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            @apply font-display bg-background-light dark:bg-background-dark;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display text-[#1C1C1E] dark:text-gray-200">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shadow-sm" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDOH9cdRtcIX-65Kn5GgG5ml68RPrpbfK0YMHB5fNG7Goic98f89Asag2el4qqLTKJ_c099NjFZD4B2ScqooU6PXg4QpKYjprvIAqV6GyirAenIR3WXKS5RZspdjxKxepzIBWUF-YDTqynFt4mBPt8Dbwnm8jWHrfzWNyVhDs01lkxtyyvgl1Me9y21s8byeSM-PKmqJIMZsBpmksZ0jdcof7Q6mrUSlrg29PknF2f0Fi53L1hMSgLDV89mqXTJ7IDkSMObTUdrhwvi");'></div>
+</div>
+<div class="flex items-center justify-end gap-2">
+<button class="relative flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-[#1C1C1E] dark:text-gray-200">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+</button>
+<button class="flex items-center justify-center rounded-full h-10 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary/90 gap-2 text-sm font-semibold leading-normal min-w-0 px-4">
+<span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+<span>₹8,450</span>
+</button>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="px-4 py-3">
+<label class="flex flex-col min-w-40 h-12 w-full">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full shadow-sm">
+<div class="text-[#8A8A8E] flex border-none bg-gray-100 dark:bg-gray-800 items-center justify-center pl-4 rounded-l-lg border-r-0">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#1C1C1E] dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-gray-100 dark:bg-gray-800 h-full placeholder:text-[#8A8A8E] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal" placeholder="Search projects, materials, or ask AI..." value=""/>
+</div>
+</label>
+</div>
+<!-- Segmented Buttons -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-[#34C759] has-[:checked]:text-white text-[#1C1C1E] dark:text-gray-300 dark:has-[:checked]:text-white text-sm font-semibold leading-normal transition-colors duration-200">
+<span class="truncate">Find Help</span>
+<input checked="" class="invisible w-0" name="role-toggle" type="radio" value="Find Help"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-primary has-[:checked]:text-white text-[#1C1C1E] dark:text-gray-300 dark:has-[:checked]:text-white text-sm font-semibold leading-normal transition-colors duration-200">
+<span class="truncate">Earn Money</span>
+<input class="invisible w-0" name="role-toggle" type="radio" value="Earn Money"/>
+</label>
+</div>
+</div>
+<!-- AI Card -->
+<div class="p-4">
+<div class="flex items-center justify-between gap-4 rounded-xl p-4 bg-gradient-to-br from-[#6A11CB] to-[#2575FC] shadow-lg">
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-2 text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+<p class="text-base font-bold leading-tight">Ask AI Any Doubt</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-3 flex-row-reverse bg-white/20 text-white gap-1.5 text-sm font-medium leading-normal w-fit backdrop-blur-sm">
+<span class="material-symbols-outlined text-lg">photo_camera</span>
+<span class="truncate">Quick Capture</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tabs -->
+<div class="pb-3">
+<div class="flex border-b border-gray-200 dark:border-gray-700 px-4 justify-between">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-[#1C1C1E] dark:text-white pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Active Projects</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#8A8A8E] dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Study Materials</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#8A8A8E] dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">My Work</p>
+</a>
+</div>
+</div>
+<!-- Content: Project Cards -->
+<div class="flex flex-col gap-4 p-4">
+<!-- Project Card 1 -->
+<div class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-base font-bold leading-tight text-[#1C1C1E] dark:text-white">Urgent: Calculus II Problem Set</p>
+<p class="text-sm text-[#8A8A8E] dark:text-gray-400">Need help solving a set of 10 differential equations. Must show all work clearly.</p>
+</div>
+<div class="flex items-center justify-between text-sm text-[#1C1C1E] dark:text-gray-300">
+<div class="flex items-center gap-1 font-semibold text-green-600 dark:text-green-400 bg-green-500/10 dark:bg-green-500/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-base">sell</span>
+<span>Budget: ₹1,500</span>
+</div>
+<div class="flex items-center gap-1 text-[#8A8A8E]">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>Due in 2 days</span>
+</div>
+</div>
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-bold leading-normal">
+<span>Bid Now</span>
+</button>
+</div>
+<!-- Project Card 2 -->
+<div class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-base font-bold leading-tight text-[#1C1C1E] dark:text-white">Python Code Debugging for ML</p>
+<p class="text-sm text-[#8A8A8E] dark:text-gray-400">My Keras model is not converging. Need an expert to review the code and identify the bug.</p>
+</div>
+<div class="flex items-center justify-between text-sm text-[#1C1C1E] dark:text-gray-300">
+<div class="flex items-center gap-1 font-semibold text-green-600 dark:text-green-400 bg-green-500/10 dark:bg-green-500/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-base">sell</span>
+<span>Budget: ₹3,000</span>
+</div>
+<div class="flex items-center gap-1 text-[#8A8A8E]">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>Due in 5 days</span>
+</div>
+</div>
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-bold leading-normal">
+<span>Bid Now</span>
+</button>
+</div>
+<!-- Project Card 3 -->
+<div class="flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm">
+<div class="flex flex-col gap-1">
+<p class="text-base font-bold leading-tight text-[#1C1C1E] dark:text-white">Proofread History Essay (10 pages)</p>
+<p class="text-sm text-[#8A8A8E] dark:text-gray-400">Looking for someone to proofread and provide feedback on an essay about the Roman Empire.</p>
+</div>
+<div class="flex items-center justify-between text-sm text-[#1C1C1E] dark:text-gray-300">
+<div class="flex items-center gap-1 font-semibold text-green-600 dark:text-green-400 bg-green-500/10 dark:bg-green-500/20 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-base">sell</span>
+<span>Budget: ₹800</span>
+</div>
+<div class="flex items-center gap-1 text-[#8A8A8E]">
+<span class="material-symbols-outlined text-base">timer</span>
+<span>Due tomorrow</span>
+</div>
+</div>
+<button class="flex w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white gap-2 text-sm font-bold leading-normal">
+<span>Bid Now</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

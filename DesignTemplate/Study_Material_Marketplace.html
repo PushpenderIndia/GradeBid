@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3B82F6", 
+                        "background-light": "#FAFAFA",
+                        "background-dark": "#111621",
+                        "accent": "#F59E0B",
+                        "text-light": "#212121",
+                        "text-dark": "#FAFAFA",
+                        "text-muted-light": "#6B7280",
+                        "text-muted-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden">
+<!-- Sticky Header with Filters -->
+<div class="sticky top-0 z-20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm pt-4">
+<div class="flex items-center gap-2 px-4 pb-3">
+<div class="relative flex-1 overflow-x-auto whitespace-nowrap">
+<div class="flex gap-2">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-primary/20 px-4 text-primary">
+<p class="text-sm font-semibold">University</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-gray-200 dark:bg-white/10 px-4 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium">Semester</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-gray-200 dark:bg-white/10 px-4 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium">Subject</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-1.5 rounded-full bg-gray-200 dark:bg-white/10 px-4 text-text-light dark:text-text-dark">
+<p class="text-sm font-medium">Content Type</p>
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-1.5 rounded-full border border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark px-3">
+<span class="material-symbols-outlined text-lg text-text-light dark:text-text-dark">swap_vert</span>
+<p class="text-sm font-medium text-text-light dark:text-text-dark">Popular</p>
+</button>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span>
+</div>
+</div>
+</div>
+<!-- Content Grid -->
+<div class="grid grid-cols-2 gap-3 p-4">
+<!-- Card 1 (Best Seller) -->
+<div class="flex flex-col gap-2">
+<div class="relative w-full">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg bg-gray-200" data-alt="Cover page of engineering notes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuClT9yp-h37Jm-YDbcGzodJ-wS0JCRroUgr21VuK4Q-yjDoIhssJXZjBMPNNPb8wK-qJV9N8ZIe71wclkeNA9QPwiy8VF_o_LbCeOiqq-mGxOixm3DSooCUFv2q7DfFDB7PllDljbl_yl87N6LDxEygIVYIkBptagYF0z-ZCe6OAuxajUH6DjEjx928MckhHIs5b-RRVdYNIlRCm2S1rGzf8GKsA2T5XTLjCp0VN39jjXi5gwnkyBcKqZl0zLSr1EhsuUgyukp24p7a");'></div>
+<div class="absolute top-2 left-2 rounded bg-accent px-2 py-0.5">
+<p class="text-xs font-bold text-white">Best Seller</p>
+</div>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-sm font-semibold leading-tight text-text-light dark:text-text-dark">Engineering Semester 4 Notes</p>
+<div class="flex items-center gap-1.5 mt-1">
+<img class="h-4 w-4 rounded-full object-cover" data-alt="Seller profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKyzrdU5sNOpyskSmt-m1dqOXEIZ9pOX734d3yckeaeMSVpIc-n5oNZebWPn6wBHF4pYK-4wneWPbmSDCWeiy7Q2X4kzrSQ9f4DaUi3N8DtmBvK1aofDdSv4LKyzqmnX4h-722FyW1GSZzkDCiXUSRoMtMDTtemLx6T_ccqUxg43piPmwp2v9knrBtzYbMlXMlHfeVkY_BR2xYFlqq8S2l0qRz7PEwnZeaKylqqSfxnvBzcaLEYOY1T5kxv7iB5z4r1nVvlPLXGnH2"/>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Gold Seller</p>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="text-accent text-sm leading-none">★</span>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">4.8 (234 reviews)</p>
+</div>
+<p class="mt-1 text-xs text-text-muted-light dark:text-text-muted-dark">Digital ₹199 | Printed ₹399</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-2">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-lg bg-gray-200" data-alt="Cover page of chemistry flashcards" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCB8SeTN7OQdhuFilwk0eB6L_P-zMk3XLVVxfEiJIizPKRty2D_Ea1e8XNvsURCRJ3GVJYI5EruXrOWf-_ETkaq6tKiDuhIOQr8T5PM2NNblDH3_8-fFpPlzFl9Em5dhpTY6_9jCc8Ug5NaacaLAYEORTaCAnkJAmvkoja0J7NxHOCet_XgucY1WclGPNVt_G8sPWor-Z4zJFfYsa0zvYc7c8zU9GdK_BwLA-JEBzgeez5PZWbh3udJ4j-le0KNDmlnWK-7dqcgNDjM");'></div>
+<div class="flex flex-col px-1">
+<p class="text-sm font-semibold leading-tight text-text-light dark:text-text-dark">Organic Chemistry Flashcards</p>
+<div class="flex items-center gap-1.5 mt-1">
+<img class="h-4 w-4 rounded-full object-cover" data-alt="Seller profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMXE9WrdNZnqYdcNxP8JANqZxgaqzTixt4BoEcnofnpglaESzF2NVqEhHcK22JjBY6ZWDF8yUgjwegE1Qk9UuImpXeI6y35RcjZp4PAlnUT7a1dISpmBS64LZE4F9Ry25IsfmZxMufoFJjLu0HcCn9gRm7rSHeYgt7g5TFJsoMqFyB9xvFH3D23RxHxWhF3mXDS8LuKPzi9gQb-f8CkwweMDwvdjQyH0PiYZ9H1iLvh67KBIqe483-JidAkcyhUp-z0Sh0J9No1ePn"/>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Top Rated</p>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="text-accent text-sm leading-none">★</span>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">4.9 (189 reviews)</p>
+</div>
+<p class="mt-1 text-xs text-text-muted-light dark:text-text-muted-dark">Digital ₹149 | Printed ₹299</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-2">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-lg bg-gray-200" data-alt="Cover page of microeconomics notes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDG-xSuNdolD76MZnesU7yDvL3y3ciNPFHUfQFef7C4DMRGbXX8Q-J5DPZaTGbLxnoCRKw3_Wh_PN_T4UBfuRC6rvUTEyjLjNMsv_Z1IO5kQhxJNFhJeOmhKY3emSUG95Lcs-eFcZENfVbngZpTIhudWnVVGjhV6nyeLdi08cfiBiKNus0dCPOBhk9P2TthCq3O5i_b1c1RlpYUVRROGn5gjaMgnvusr03v9oPaobMfuiwOGJwg0DwNNRP_ccNoAtZ2ee66c-ld8ycH");'></div>
+<div class="flex flex-col px-1">
+<p class="text-sm font-semibold leading-tight text-text-light dark:text-text-dark">Microeconomics Full Syllabus</p>
+<div class="flex items-center gap-1.5 mt-1">
+<img class="h-4 w-4 rounded-full object-cover" data-alt="Seller profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8HDIUMl1ClA1B2jhNRD0AHSLQ9mAOFQXSoBXDgC79QQQDo_Ow7Ay2_msYxRMUZxoLPwBYaKBBDvtyMEcjnzakNeNfU-zYT9ThNqVCfRHQ_LJexVNb2VBsZ7UDHZcU-Ovq42kHEGuXiPOGxrfACgu_YwIrj6eX1sO48Om7K7GE5Vv-kuLczxtozaKUR5wxGgNRU7dduRUzk_AAfKa17ClCA5JSONNXrcvjpsJivzg5HDPVa2AxKDr897qFmACDEhr3fJ0XxJSkZ06B"/>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Gold Seller</p>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="text-accent text-sm leading-none">★</span>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">5.0 (98 reviews)</p>
+</div>
+<p class="mt-1 text-xs text-text-muted-light dark:text-text-muted-dark">Digital ₹199 | Printed ₹399</p>
+</div>
+</div>
+<!-- Card 4 (Best Seller) -->
+<div class="flex flex-col gap-2">
+<div class="relative w-full">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-lg bg-gray-200" data-alt="Cover page of physics notes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuhZll7G0gigPzfiXig6lg3frRUVojng9fjg2UqSKZSwY6WEYkl2DLYJi9DXrfQDNw6NX3fpYDAHrltLmm4hqmKq9JTXuOscaKX-ifGZJys-CzFJCJnhSNHYY_7k4HNC1utBkESNo2G8V_waAj4GKQbKYVEgkCUmvcaKyQHvk6fQslLJRLu54M-wEX3PAILPT5__BJQPLHLVfz0SEONiB5XFULIw5tPbUJs5TmGJOj-jYZD5FKfRIwV-hBtuIyK8ikWXvPtDQLCYKn");'></div>
+<div class="absolute top-2 left-2 rounded bg-accent px-2 py-0.5">
+<p class="text-xs font-bold text-white">Best Seller</p>
+</div>
+</div>
+<div class="flex flex-col px-1">
+<p class="text-sm font-semibold leading-tight text-text-light dark:text-text-dark">Modern Physics Handwritten Notes</p>
+<div class="flex items-center gap-1.5 mt-1">
+<img class="h-4 w-4 rounded-full object-cover" data-alt="Seller profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAO9kBjeomuy5Mv4azfAnY0NIkM2geSEMOXoDfYzbo90cmBPjAHDLnZ15be4nI-BiE94FjG8M4oxrrzmWsIzPxWgEYJ4GQRq6LMGKFSt21bonLfSkYd3FDbgJRK1WXBoOc2zJOiXMLvLBGJHbfKOJDM5Y1UPXyVodbElu_YqP9OOkeMvfzIKPiWfVYHX3NgtbBoilK8AW36I3WJah-gAtturGYUtrRJDhwzJ8AGa_d_D1CfGff24pt3A6Cxwf21bpOqkny0pncphN0U"/>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">Top Rated</p>
+</div>
+<div class="flex items-center gap-1 mt-1">
+<span class="text-accent text-sm leading-none">★</span>
+<p class="text-xs font-medium text-text-muted-light dark:text-text-muted-dark">4.9 (421 reviews)</p>
+</div>
+<p class="mt-1 text-xs text-text-muted-light dark:text-text-muted-dark">Digital ₹299 | Printed ₹499</p>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet Overlay -->
+<div class="absolute inset-0 z-30 flex flex-col justify-end bg-black/40">
+<!-- Bottom Sheet Content -->
+<div class="flex max-h-[90vh] flex-col rounded-t-xl bg-background-light dark:bg-background-dark">
+<!-- Handle -->
+<div class="flex h-5 w-full flex-shrink-0 cursor-grab items-center justify-center">
+<div class="h-1 w-9 rounded-full bg-gray-300 dark:bg-gray-600"></div>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-4 pb-28">
+<!-- Header Image -->
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-200 dark:bg-gray-700 rounded-lg min-h-60" data-alt="Preview image of the first page of notes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA9oPskVET3YgYjYai3vd1KqpWU7hqEsYyK0j4IGnzTjXWZneDQCKtIg17JtR8RAr53YJnM3gdMJqJDpgqUPeuAx86Ntc4Fr8COD2DcUvKO4x4d8LxXYCXfF-hd6clmVMYx6zF_koedoOEUdwUkqFcjaQacpcQs1MoW-U3hfVL5PqowvjjNdicFaatIBOFx6vJPzc1sDvDUVvgMJeb0cFcE01EBK-nXC-kSFrekhGM6hxPsOJ4jxLcnAn981l1bEjBYxBtJ9ztF08Rk");'></div>
+<a class="mt-3 block text-center text-sm font-medium text-primary" href="#">Preview first 5 pages free</a>
+<!-- Seller Profile -->
+<div class="mt-4 flex items-center justify-between rounded-lg border border-gray-200 dark:border-gray-700 p-3">
+<div class="flex items-center gap-3">
+<img class="h-12 w-12 rounded-full object-cover" data-alt="Seller profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEIc8un_CNeWxzEVhK96p-wYo23-ExQBp-odlLqcCd5es9t1iE78p79U4OrH0dirttaKDh3N6vAN4j1B0I0Kub-DrfuYX8OhNyGx1N5YMrozRUVlvvHY0szy3l_T5wxbUj0Zl_yOU1xkU4Itv1Kqb-4WoQLJZWs0JU-bNDxyt99v_iQ0D577gPnvi1hLpvdQKUeSd0z9vcGbV4ZOPzxjF8GztoRV7PWirxxmDqabdpexD23RGUQGv183vt02_ZmvPw1U7Ia8kOYrKR"/>
+<div>
+<p class="font-bold text-text-light dark:text-text-dark">Rohan Sharma</p>
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">IIT Bombay, CGPA 9.2</p>
+</div>
+</div>
+<span class="rounded-md bg-accent/20 px-2 py-1 text-xs font-bold text-accent">Gold Seller</span>
+</div>
+<!-- Description & ToC -->
+<div class="mt-4">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Description</h3>
+<p class="mt-1 text-sm text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+                            Comprehensive handwritten notes for the 4th semester of Computer Science Engineering. Covers all major topics including DSA, COA, and Mathematics-IV. Prepared by a top-ranking student.
+                        </p>
+</div>
+<div class="mt-4">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Table of Contents</h3>
+<ul class="mt-2 space-y-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+<li class="flex items-center justify-between border-b border-dashed border-gray-200 dark:border-gray-700 pb-1"><span>Chapter 1: Data Structures</span> <span>p. 1-25</span></li>
+<li class="flex items-center justify-between border-b border-dashed border-gray-200 dark:border-gray-700 pb-1"><span>Chapter 2: Algorithms</span> <span>p. 26-50</span></li>
+<li class="flex items-center justify-between"><span>Chapter 3: Computer Organization</span> <span>p. 51-80</span></li>
+</ul>
+</div>
+<!-- Reviews Section -->
+<div class="mt-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-text-light dark:text-text-dark">Reviews (234)</h3>
+<a class="text-sm font-medium text-primary" href="#">See All</a>
+</div>
+<div class="mt-3 flex flex-col gap-4">
+<div class="flex gap-3">
+<img class="h-8 w-8 rounded-full object-cover" data-alt="Reviewer profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOFkjE4Fr13tLwhTgYqmY9jtODecME2sRmxz1qnATO9BgbODrUNtf6NpodRBzhvLxQ6IYXfeTpxV6G3egKBzWc_b5X5-Up5HlJnaNeI82OI4Zcfpuy6xo8ve6Vw0nbGnWY4I_v5etTudka7qiSmSh4nNOKMTeDAWYXp8Ia_uCZVD8jcPd08A80if0uchNhpoogfS17fw9rdU4-4GjEWUT2S3Wjg04xFG6Bj1IOfDX2_Cmt2LNXjKIu-9w9R3pvxAotjtEJTQipqU19"/>
+<div>
+<div class="flex items-center gap-1">
+<span class="text-accent text-base">★★★★★</span>
+</div>
+<p class="text-sm text-text-light dark:text-text-dark mt-1">Absolutely life-saving notes. Well-structured and easy to understand. Highly recommend!</p>
+<p class="text-xs text-text-muted-light dark:text-text-muted-dark mt-1">- Priya Singh</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fixed CTA Buttons -->
+<div class="absolute bottom-0 left-0 right-0 z-10 border-t border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark p-4">
+<div class="flex items-center gap-3">
+<button class="flex-1 rounded-lg bg-primary/20 py-3 text-sm font-bold text-primary">Buy Digital ₹199</button>
+<button class="flex-1 rounded-lg bg-accent py-3 text-sm font-bold text-white">Buy Printed ₹399</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

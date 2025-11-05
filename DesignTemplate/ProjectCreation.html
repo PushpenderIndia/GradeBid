@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create New Project</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2463eb",
+            "background-light": "#f9fafb",
+            "background-dark": "#111621",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    .range-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 9999px;
+        background-color: #ffffff;
+        border: 2px solid #10b981;
+        cursor: pointer;
+        margin-top: -8px; /* To center the thumb on the track */
+    }
+
+    .range-slider::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 9999px;
+        background-color: #ffffff;
+        border: 2px solid #10b981;
+        cursor: pointer;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden pb-32">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 sticky top-0 z-10 border-b border-slate-200 dark:border-slate-800">
+<div class="text-[#111827] dark:text-white flex size-10 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</div>
+<h1 class="text-[#111827] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Create New Project</h1>
+<div class="flex w-10 items-center justify-end"></div>
+</div>
+<!-- Page Indicators -->
+<div class="flex w-full flex-row items-center justify-center gap-3 py-5 px-4">
+<div class="flex-1 h-1.5 rounded-full bg-[#10b981]"></div>
+<div class="flex-1 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex-1 h-1.5 rounded-full bg-slate-200 dark:bg-slate-700"></div>
+</div>
+<!-- Main Content -->
+<main class="flex flex-col gap-6 px-4">
+<!-- Project Details Card -->
+<div class="w-full rounded-xl bg-white dark:bg-slate-900 shadow-sm p-5">
+<h2 class="text-[#111827] dark:text-white text-lg font-medium leading-tight tracking-[-0.015em]">Project Details</h2>
+<div class="flex flex-col gap-4 mt-4">
+<!-- Project Title -->
+<label class="flex flex-col w-full">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium leading-normal pb-2">Project Title</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111827] dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#10b981]/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 focus:border-[#10b981] h-12 placeholder:text-[#6B7281]/70 px-4 text-base font-normal leading-normal" placeholder="e.g., Quantum Physics Research Paper" value=""/>
+</label>
+<!-- Category -->
+<label class="flex flex-col w-full">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium leading-normal pb-2">Category</p>
+<select class="form-select flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111827] dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#10b981]/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 focus:border-[#10b981] h-12 px-4 text-base font-normal leading-normal appearance-none bg-no-repeat bg-right" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236B7281' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e&quot;); background-position: right 0.5rem center; background-size: 1.5em 1.5em;">
+<option>Select a category</option>
+<option>Computer Science</option>
+<option>Literature</option>
+<option>Physics</option>
+<option>Mathematics</option>
+</select>
+</label>
+<!-- Description -->
+<label class="flex flex-col w-full">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium leading-normal pb-2">Detailed Description</p>
+<textarea class="form-textarea flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111827] dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#10b981]/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 focus:border-[#10b981] h-32 placeholder:text-[#6B7281]/70 p-4 text-base font-normal leading-normal" placeholder="Describe the project requirements, scope, and expected deliverables..."></textarea>
+</label>
+</div>
+</div>
+<!-- File Upload Card -->
+<div class="w-full rounded-xl bg-white dark:bg-slate-900 shadow-sm p-5">
+<h2 class="text-[#111827] dark:text-white text-lg font-medium leading-tight tracking-[-0.015em]">Attachments</h2>
+<div class="mt-4 flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800/50 p-6 text-center">
+<span class="material-symbols-outlined text-4xl text-[#6B7281] dark:text-slate-400">cloud_upload</span>
+<p class="mt-2 text-sm text-[#6B7281] dark:text-slate-400">Drag &amp; drop files here, or</p>
+<button class="mt-2 text-sm font-semibold text-[#10b981] dark:text-green-400">Browse Files</button>
+</div>
+</div>
+<!-- Logistics & Budget Card -->
+<div class="w-full rounded-xl bg-white dark:bg-slate-900 shadow-sm p-5">
+<h2 class="text-[#111827] dark:text-white text-lg font-medium leading-tight tracking-[-0.015em]">Logistics &amp; Budget</h2>
+<div class="flex flex-col gap-6 mt-4">
+<!-- Budget Range -->
+<div class="w-full">
+<div class="flex justify-between items-center mb-2">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium">Budget Range</p>
+<p class="text-[#111827] dark:text-white text-lg font-semibold">₹100 - ₹10000</p>
+</div>
+<div class="relative h-2 w-full rounded-full bg-slate-200 dark:bg-slate-700">
+<div class="absolute h-2 rounded-full bg-[#10b981]" style="left: 0%; right: 0%;"></div>
+<input class="range-slider absolute w-full h-2 appearance-none bg-transparent" max="10000" min="100" type="range" value="5000"/>
+</div>
+</div>
+<!-- Deadline -->
+<label class="flex flex-col w-full">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium leading-normal pb-2">Deadline</p>
+<div class="relative">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#111827] dark:text-white focus:outline-0 focus:ring-2 focus:ring-[#10b981]/50 border border-slate-300 dark:border-slate-700 bg-background-light dark:bg-slate-800 focus:border-[#10b981] h-12 placeholder:text-[#6B7281]/70 px-4 text-base font-normal leading-normal" type="date"/>
+</div>
+</label>
+<!-- Delivery Preference -->
+<div class="w-full">
+<p class="text-[#6B7281] dark:text-slate-400 text-sm font-medium leading-normal pb-2">Delivery Preference</p>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center justify-center gap-2 rounded-lg border-2 border-[#10b981] bg-green-500/10 dark:bg-green-400/10 p-3 cursor-pointer">
+<input checked="" class="form-radio text-[#10b981] focus:ring-[#10b981]" name="delivery" type="radio"/>
+<span class="text-[#111827] dark:text-white font-medium">Digital</span>
+</label>
+<label class="flex items-center justify-center gap-2 rounded-lg border border-slate-300 dark:border-slate-700 p-3 cursor-pointer">
+<input class="form-radio text-[#10b981] focus:ring-[#10b981]" name="delivery" type="radio"/>
+<span class="text-[#111827] dark:text-white font-medium">Physical</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer Button -->
+<div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 p-4 border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+<button class="w-full h-14 rounded-xl bg-[#10b981] text-white text-base font-bold flex items-center justify-center">
+        Post Project - Pay ₹25 Escrow
+      </button>
+</div>
+</div>
+</body></html>

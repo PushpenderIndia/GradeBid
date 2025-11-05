@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inbox - Academic Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2463eb",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#111621",
+                        "success": "#7ED321",
+                        "warning": "#F5A623",
+                        "neutral": "#E4E4E7"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10 border-b border-neutral/50 dark:border-white/10">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-gray-800 dark:text-gray-200">search</span>
+</div>
+<h2 class="text-gray-900 dark:text-gray-50 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Inbox</h2>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 bg-transparent text-gray-800 dark:text-gray-200 gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined">add_circle_outline</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="sticky top-[72px] bg-background-light dark:bg-background-dark z-10">
+<div class="flex border-b border-neutral/50 dark:border-white/10 px-4 justify-between">
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-primary text-gray-900 dark:text-gray-50 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Messages</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Orders</p>
+</a>
+<a class="flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-gray-500 dark:text-gray-400 pb-[13px] pt-4 flex-1" href="#">
+<p class="text-sm font-bold leading-normal tracking-[0.015em]">Earnings</p>
+</a>
+</div>
+</div>
+<!-- Main Content: Messages List -->
+<div class="flex flex-col flex-1 pb-4">
+<!-- List Item 1 (Unread) -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between border-b border-neutral/50 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Avatar of Dr. Eleanor Vance" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv81iUjhBLFJJt7BnhadLJ46G9uebHfb_fq3i7KrK5J8InYsr3BXZ5FNqGOFr9cP1OuUgUWOn-6zxHTZiGjURXfN2RZ4IYoh5CAnfGLqU7vxcdedhq40R0_19tbSZoenprHODSK7RJWG6S-Shl9oDZEYLqCVrUNu5GmGlkRFJt7pJtn8Nskesz6llzP-5_2rl33zRoBqr-uWptVK_IMQE7aCGwBGA32Nzh8TzaUNCPYMPgM5g4ufkniUERcQRVjB8-qhQm3RmrXjO_");'></div>
+<div class="absolute bottom-0 right-0 size-4 rounded-full bg-success border-2 border-background-light dark:border-background-dark"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-50 text-base font-bold leading-normal line-clamp-1">Dr. Eleanor Vance</p>
+<p class="text-primary text-sm font-medium leading-normal line-clamp-1">Sounds great, I'll review the draft...</p>
+</div>
+</div>
+<div class="shrink-0 flex flex-col items-end gap-1.5">
+<p class="text-gray-500 dark:text-gray-400 text-xs font-normal leading-normal">11:45 AM</p>
+<div class="flex size-6 items-center justify-center rounded-full bg-primary">
+<p class="text-white text-xs font-bold">2</p>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between border-b border-neutral/50 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Avatar of Ben Carter" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCq4e0_pj7Yq_IEU7eORRF7ReXvHCK_3Gl4k-DNAlE-SZqPDIL4YanNLuG4zsX_0ZfjveDMde11DvuXUZ1t2dDAedBu-My_VFjfWI9Vam6cpRpYUlUvTF3iJMMaQz8p8YpJ24mePfDbQrkZaUgzbMlWNLyc6tH2FMRTtdG4-pVAqC5OW1elF6yCHUfGOLJRL7TF3oUdQLFpBJgV957nvR4ucXg4rAWBFfJ73Tncjt-e9pnPyzK8AJ3SMrsYLwXlmCpgpgtSiV-ddwZy");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-50 text-base font-medium leading-normal line-clamp-1">Ben Carter</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Payment has been escrowed.</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-xs font-normal leading-normal">11:42 AM</p></div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between border-b border-neutral/50 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Avatar of Sophia Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBs7KF1TVj65RNgduxJfXoVh80yfvRpY8oEpe_PQ1VakA9-tLFUeaMzh62DaX2KK4ZvEssaN1zl_VQjTgKsgvgBwtw0pnKYAuBG29rmLjWtFT1NEjuiy05gQccBILzxa7_e0_8aP7HTcioiuzBnbJX1khHYt1qS9aDrwnFQONCymz0oI325fAigQNSjg-Q-oxO_6aPOUP1YR9F1UmNk6QvpHjhZNvSnpvMdUp37dsj9yjrCn3LzOp4kN6VmpWLv8yEgVZLvcrvhbuO_");'></div>
+<div class="absolute bottom-0 right-0 size-4 rounded-full bg-gray-400 border-2 border-background-light dark:border-background-dark"></div>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-50 text-base font-medium leading-normal line-clamp-1">Sophia Chen</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Can you clarify the requirements for...</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-xs font-normal leading-normal">Yesterday</p></div>
+</div>
+<!-- List Item 4 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between border-b border-neutral/50 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Avatar of Marcus Holloway" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCfULlmocdEJ1VVLlPEnbaNqzc0PdNzPIzWTgnypcgdN0ajLvP1SwZgjuj4O1VTIW5y9zKiyr4eH0A08AP2lUl5jacK9EtN0EOs2ur-cM5cV9Pu8kbxnjZVYUz3W5e42V2-2I2mdYo0s3N82P80rMAjqABx80WVDNlCfekdXI3vbGLJc5GfxWu4LmDLIS4e_y8g0coyAvBAsxMbPHZ3GZO9v2iCACznRwYpLbY-0krmyOaRbPt2TgwD5IwpKzglbq1__W_Jm4hBfo8C");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-50 text-base font-medium leading-normal line-clamp-1">Marcus Holloway</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">Great, looking forward to working with you.</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-xs font-normal leading-normal">3/15/24</p></div>
+</div>
+<!-- List Item 5 -->
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark px-4 min-h-[72px] py-3 justify-between border-b border-neutral/50 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-14 w-14" data-alt="Avatar of Chloe Price" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDlOuHt9frUiAn7jZxHM5y-1zWcauszxvHIoquL28tBAY1YKuYorzvspaEyGxSm5dh8E_RiLZ-CTXQt1K04IKaLA-8fo2QGjibv9SIQbEa759gwYBNJf3lC161L_9zAuKbeEg8OCEzm9qL3-Eiz3OZPGpT7PjZKWKy2k-FKZdV_vFGoVp0K3dgm0e7rOpTlsjodQkWwI73D5WeZKvznefb7G8-T0uEY_dpobha50tyu8vXIN1ZhxCOfh-l1dzZyux8yej0azDbuFjpS");'></div>
+<div class="flex flex-col justify-center">
+<p class="text-gray-900 dark:text-gray-50 text-base font-medium leading-normal line-clamp-1">Chloe Price</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal line-clamp-2">The files are attached below.</p>
+</div>
+</div>
+<div class="shrink-0"><p class="text-gray-500 dark:text-gray-400 text-xs font-normal leading-normal">3/14/24</p></div>
+</div>
+<!-- Empty State Example (can be conditionally shown) -->
+<!-- 
+        <div class="flex flex-col items-center justify-center text-center p-10 flex-1">
+            <span class="material-symbols-outlined text-gray-400 dark:text-gray-500" style="font-size: 64px;">forum</span>
+            <h3 class="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-200">No Messages Yet</h3>
+            <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Your conversations with buyers and sellers will appear here.</p>
+        </div> 
+        -->
+</div>
+</div>
+</body></html>

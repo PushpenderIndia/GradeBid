@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#2463eb",
+            "background-light": "#f6f6f8",
+            "background-dark": "#111621",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center p-4 pb-2 justify-between bg-background-light dark:bg-background-dark sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+<span class="material-symbols-outlined text-[#0e121b] dark:text-gray-200">arrow_back</span>
+<h2 class="text-[#0e121b] dark:text-gray-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">My Profile</h2>
+<div class="w-6"></div> <!-- Spacer -->
+</div>
+<!-- Profile Header -->
+<div class="flex p-4 @container">
+<div class="flex w-full flex-col gap-4 items-center">
+<div class="flex gap-4 flex-col items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32" data-alt="User's profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNbipOFeSop9GRf3b8OLqTsLbcKV9YqONHd0xzCuNF8eGmeri2hmM5D8NmOd4UCtQsrXnR7bm8BU0CbDyJI61GQzBMDFouwqCGEo4-TR2XF4j1djMI9cP1X5osUysuKgvX7Ti5WC1B4Ss7PxyTYRhNy-2CVp7puWaMFx-XugmYKftgdy1TrFpGvvWV6c_M2gQLw217vqyinvDVp4IBij3pFdfmIG9BmRgFMdboLHnQU0VZyIULmedgf0ni2oUSy0zZpkdZ6Lam5fHB");'></div>
+</div>
+<div class="flex flex-col items-center justify-center">
+<p class="text-[#0e121b] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Aarav Sharma</p>
+<p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal text-center">University of Delhi, 2024</p>
+<div class="flex items-center gap-1 text-gray-500 dark:text-gray-400 text-base font-normal leading-normal text-center">
+<span class="material-symbols-outlined text-yellow-500 !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-500 !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-500 !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-500 !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-yellow-500 !text-xl">star</span>
+<span>(120 reviews)</span>
+</div>
+</div>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] w-full max-w-[480px]">
+<span class="truncate">Edit Profile</span>
+</button>
+</div>
+</div>
+<!-- Chips -->
+<div class="flex gap-2 p-3 justify-center flex-wrap px-4">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 dark:bg-primary/20 pl-3 pr-3">
+<p class="text-primary dark:text-blue-300 text-sm font-medium leading-normal">Active Buyer</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 dark:bg-primary/20 pl-3 pr-3">
+<p class="text-primary dark:text-blue-300 text-sm font-medium leading-normal">Verified Seller</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-primary/10 dark:bg-primary/20 pl-3 pr-3">
+<p class="text-primary dark:text-blue-300 text-sm font-medium leading-normal">Top Seller</p>
+</div>
+</div>
+<!-- Stats -->
+<div class="flex flex-wrap gap-3 p-4">
+<div class="flex min-w-[158px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Projects Completed</p>
+<p class="text-[#0e121b] dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">85</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Total Earned</p>
+<p class="text-[#0e121b] dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">₹50,000</p>
+</div>
+<div class="flex min-w-[158px] flex-1 flex-col gap-1 rounded-xl p-4 bg-white dark:bg-background-dark border border-gray-200 dark:border-gray-800">
+<p class="text-gray-600 dark:text-gray-400 text-sm font-medium leading-normal">Success Rate</p>
+<p class="text-[#0e121b] dark:text-gray-100 tracking-light text-2xl font-bold leading-tight">98%</p>
+</div>
+</div>
+<!-- Verification Card (Conditional) -->
+<div class="p-4">
+<div class="flex flex-col gap-4 rounded-xl p-4 bg-yellow-400/20 dark:bg-yellow-500/20 border border-yellow-500/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-600 dark:text-yellow-400">error</span>
+<p class="text-yellow-800 dark:text-yellow-300 font-semibold flex-1">Complete verification to unlock full features</p>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold">Upload Student ID</button>
+<button class="flex-1 flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-gray-700 text-[#0e121b] dark:text-gray-100 text-sm font-bold border border-gray-300 dark:border-gray-600">Upload Grade Sheet</button>
+</div>
+</div>
+</div>
+<!-- Portfolio Section -->
+<div class="px-4 pb-3 pt-5">
+<h2 class="text-[#0e121b] dark:text-gray-100 text-[22px] font-bold leading-tight tracking-[-0.015em]">Portfolio</h2>
+</div>
+<div class="px-4">
+<div class="grid grid-cols-3 gap-2">
+<div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Portfolio item 1, a preview of a research paper" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACwdY5dxeyFDvTG4JpcULbgbZ6thl6vJTZBASa7Y70ROux8qkL9JW-U36Hji-sP6Y4mfaRPX9sr9NPgqspZE1vxFfQJ5dZiYBJriHVTZ1Rg7UYN6aGr9kgpA50x77wJfEjIzWgx_bCbA8Jq8DCPPzCefgYay5-U-ioWuAta9-RsxnQ9exqiJXMK3CfQ6PgedLEWDxndrjTFGz5AUTCpAgezBuyZOJT6jiV0jmj-ThMVU3tadWa0JivtDjfGumHR1zT2psgAx9JF3re');"></div>
+<div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Portfolio item 2, a slide from a presentation" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6P6ZV0ZW4eR8m6EaaXfKCELymr7sT4SjmGkG8R67tGryRdEN2YcAKH-bsUJkgsoAEtHh8M2X1vMPXEM9a_IIy6NqtOGN60WewqNylkA0Rut3fr-8FyLrYW5QM78fDBTjwmOHGJW_MCoxsTCfFr-MXx7lYXx43hPqAcnYj7v0gQag1EfF_TyRRu3-Ueg4BYDMuz86mcX5NOK3i8u9cyAXl2gSuCzYOvK4qH5jVq_zrLvw_5SrkvqQQNhnhOB3FpLnalCOUovuO880y');"></div>
+<div class="aspect-square bg-gray-200 dark:bg-gray-800 rounded-lg bg-cover bg-center" data-alt="Portfolio item 3, a code snippet on a screen" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpudWotsxv99pf-Qq6VA3870IakJGBMymS6mcuVeuNfBbeE-3JZ-mwAwVKJPwBHJ_oBATf3w6QJeu_5qJ4LsCdrrfzRj5KWZlm4DTRYEoTb_57lUDcdhj0CqOQwG6h04SKiboRJ0PQaBjxa6tQDa-t0CkCtANHeUDT7ux16x3LTFA7PrE2fujUKQ2Dd6E_RBoO_OEV_qvhJyYdH-4nZebcibqfrdtUUqjoB1ny7iFqw3e36gqiSApPXvIn9cE0z3JSzPFNlXlgDoFE');"></div>
+</div>
+<div class="flex gap-2 pt-4 flex-wrap">
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-gray-200 dark:bg-gray-700 px-3">
+<p class="text-[#0e121b] dark:text-gray-200 text-xs font-medium leading-normal">Python</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-gray-200 dark:bg-gray-700 px-3">
+<p class="text-[#0e121b] dark:text-gray-200 text-xs font-medium leading-normal">React</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-gray-200 dark:bg-gray-700 px-3">
+<p class="text-[#0e121b] dark:text-gray-200 text-xs font-medium leading-normal">Content Writing</p>
+</div>
+</div>
+<button class="mt-4 flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-gray-200 dark:bg-gray-800 text-[#0e121b] dark:text-gray-100 text-sm font-bold">
+<span class="truncate">Edit Portfolio</span>
+</button>
+</div>
+<div class="h-px bg-gray-200 dark:bg-gray-800 my-6"></div>
+<!-- Menu List -->
+<div class="flex flex-col px-4 pb-8">
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">account_balance_wallet</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">My Wallet</span>
+<span class="text-gray-500 dark:text-gray-400 mr-2">₹1,500</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">home</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">My Addresses</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">shield</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Academic Verification</span>
+<div class="flex items-center gap-1 rounded-full bg-green-100 dark:bg-green-900/50 px-2 py-0.5">
+<span class="text-xs font-medium text-green-700 dark:text-green-300">Verified</span>
+</div>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500 ml-2">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">credit_card</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Payment Methods</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">history</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Transaction History</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">card_giftcard</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Refer &amp; Earn</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">help</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Support &amp; Help</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4 border-b border-gray-200 dark:border-gray-800" href="#">
+<span class="material-symbols-outlined text-gray-600 dark:text-gray-400">settings</span>
+<span class="ml-4 flex-1 text-[#0e121b] dark:text-gray-100">Settings</span>
+<span class="material-symbols-outlined text-gray-400 dark:text-gray-500">chevron_right</span>
+</a>
+<a class="flex items-center py-4" href="#">
+<span class="material-symbols-outlined text-red-500 dark:text-red-400">logout</span>
+<span class="ml-4 flex-1 text-red-500 dark:text-red-400 font-medium">Logout</span>
+</a>
+</div>
+</div>
+</body></html>

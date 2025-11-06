@@ -8,6 +8,7 @@ import Dashboard from './src/screens/Dashboard/Dashboard';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import AIDoubtSolver from './src/screens/AI/AIDoubtSolver';
 import StudyMaterialMarketplace from './src/screens/StudyMaterials/StudyMaterialMarketplace';
+import ChatTransactionManagement from './src/screens/Chat/ChatTransactionManagement';
 import './global.css';
 
 export default function App() {
@@ -46,6 +47,10 @@ export default function App() {
     setCurrentScreen('materials');
   };
 
+  const handleNavigateToChat = () => {
+    setCurrentScreen('chat');
+  };
+
   const renderScreen = () => {
     if (currentScreen === 1) {
       return <Onboarding1 onNext={handleNext} onSkip={handleSkip} />;
@@ -69,6 +74,7 @@ export default function App() {
           onNavigateToProfile={handleNavigateToProfile}
           onNavigateToAI={handleNavigateToAI}
           onNavigateToMaterials={handleNavigateToMaterials}
+          onNavigateToChat={handleNavigateToChat}
         />
       );
     }
@@ -83,6 +89,10 @@ export default function App() {
 
     if (currentScreen === 'materials') {
       return <StudyMaterialMarketplace onBack={handleBackToDashboard} />;
+    }
+
+    if (currentScreen === 'chat') {
+      return <ChatTransactionManagement onBack={handleBackToDashboard} />;
     }
 
     return null;

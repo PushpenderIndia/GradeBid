@@ -5,10 +5,11 @@ import Onboarding2 from './src/screens/Onboarding/Onboarding2';
 import Onboarding3 from './src/screens/Onboarding/Onboarding3';
 import LoginScreen from './src/screens/Auth/LoginScreen';
 import Dashboard from './src/screens/Dashboard/Dashboard';
+import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import './global.css';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState(1); 
+  const [currentScreen, setCurrentScreen] = useState('dashboard'); 
 
   const handleNext = () => {
     if (currentScreen < 3) {
@@ -25,6 +26,14 @@ export default function App() {
   const handleLogin = () => {
     console.log('Login successful');
     setCurrentScreen('dashboard');
+  };
+
+  const handleBackToDashboard = () => {
+    setCurrentScreen('dashboard');
+  };
+
+  const handleNavigateToProfile = () => {
+    setCurrentScreen('profile');
   };
 
   const renderScreen = () => {
@@ -45,7 +54,11 @@ export default function App() {
     }
 
     if (currentScreen === 'dashboard') {
-      return <Dashboard />;
+      return <Dashboard onNavigateToProfile={handleNavigateToProfile} />;
+    }
+
+    if (currentScreen === 'profile') {
+      return <ProfileScreen onBack={handleBackToDashboard} />;
     }
 
     return null;

@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Dashboard() {
+export default function Dashboard({ onNavigateToProfile }) {
   const [activeTab, setActiveTab] = useState('active'); // 'active', 'materials', 'mywork'
   const [activeRole, setActiveRole] = useState('find'); // 'find' or 'earn'
 
@@ -44,9 +44,14 @@ export default function Dashboard() {
       <ScrollView className="flex-1">
         {/* Top App Bar */}
         <View className="flex-row items-center justify-between px-4 pb-2 pt-4 bg-background-light dark:bg-background-dark">
-          <View className="w-12 h-12 items-center justify-center">
-            <View className="w-10 h-10 rounded-full bg-gray-300 shadow-sm" />
-          </View>
+          <TouchableOpacity
+            className="w-12 h-12 items-center justify-center"
+            onPress={onNavigateToProfile}
+          >
+            <View className="w-10 h-10 rounded-full bg-gray-300 shadow-sm items-center justify-center">
+              <MaterialIcons name="person" size={24} color="#007AFF" />
+            </View>
+          </TouchableOpacity>
           <View className="flex-row items-center gap-2">
             <TouchableOpacity className="relative w-10 h-10 items-center justify-center rounded-full bg-transparent">
               <MaterialIcons name="notifications" size={24} color="#1C1C1E" />

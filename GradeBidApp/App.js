@@ -7,6 +7,7 @@ import LoginScreen from './src/screens/Auth/LoginScreen';
 import Dashboard from './src/screens/Dashboard/Dashboard';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import AIDoubtSolver from './src/screens/AI/AIDoubtSolver';
+import StudyMaterialMarketplace from './src/screens/StudyMaterials/StudyMaterialMarketplace';
 import './global.css';
 
 export default function App() {
@@ -41,6 +42,10 @@ export default function App() {
     setCurrentScreen('ai');
   };
 
+  const handleNavigateToMaterials = () => {
+    setCurrentScreen('materials');
+  };
+
   const renderScreen = () => {
     if (currentScreen === 1) {
       return <Onboarding1 onNext={handleNext} onSkip={handleSkip} />;
@@ -63,6 +68,7 @@ export default function App() {
         <Dashboard
           onNavigateToProfile={handleNavigateToProfile}
           onNavigateToAI={handleNavigateToAI}
+          onNavigateToMaterials={handleNavigateToMaterials}
         />
       );
     }
@@ -73,6 +79,10 @@ export default function App() {
 
     if (currentScreen === 'ai') {
       return <AIDoubtSolver onBack={handleBackToDashboard} />;
+    }
+
+    if (currentScreen === 'materials') {
+      return <StudyMaterialMarketplace onBack={handleBackToDashboard} />;
     }
 
     return null;

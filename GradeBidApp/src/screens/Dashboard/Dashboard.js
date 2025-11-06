@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Dashboard({ onNavigateToProfile, onNavigateToAI }) {
+export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavigateToMaterials }) {
   const [activeTab, setActiveTab] = useState('active'); // 'active', 'materials', 'mywork'
   const [activeRole, setActiveRole] = useState('find'); // 'find' or 'earn'
 
@@ -154,7 +154,10 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI }) {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setActiveTab('materials')}
+              onPress={() => {
+                setActiveTab('materials');
+                onNavigateToMaterials();
+              }}
               className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
                 activeTab === 'materials' ? 'border-b-primary' : 'border-b-transparent'
               }`}

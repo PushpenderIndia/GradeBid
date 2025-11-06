@@ -6,6 +6,7 @@ import Onboarding3 from './src/screens/Onboarding/Onboarding3';
 import LoginScreen from './src/screens/Auth/LoginScreen';
 import Dashboard from './src/screens/Dashboard/Dashboard';
 import ProfileScreen from './src/screens/Profile/ProfileScreen';
+import AIDoubtSolver from './src/screens/AI/AIDoubtSolver';
 import './global.css';
 
 export default function App() {
@@ -36,6 +37,10 @@ export default function App() {
     setCurrentScreen('profile');
   };
 
+  const handleNavigateToAI = () => {
+    setCurrentScreen('ai');
+  };
+
   const renderScreen = () => {
     if (currentScreen === 1) {
       return <Onboarding1 onNext={handleNext} onSkip={handleSkip} />;
@@ -54,11 +59,20 @@ export default function App() {
     }
 
     if (currentScreen === 'dashboard') {
-      return <Dashboard onNavigateToProfile={handleNavigateToProfile} />;
+      return (
+        <Dashboard
+          onNavigateToProfile={handleNavigateToProfile}
+          onNavigateToAI={handleNavigateToAI}
+        />
+      );
     }
 
     if (currentScreen === 'profile') {
       return <ProfileScreen onBack={handleBackToDashboard} />;
+    }
+
+    if (currentScreen === 'ai') {
+      return <AIDoubtSolver onBack={handleBackToDashboard} />;
     }
 
     return null;

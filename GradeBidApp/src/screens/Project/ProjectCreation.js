@@ -267,15 +267,13 @@ export default function ProjectCreation({ onBack }) {
       </ScrollView>
 
       {/* Sticky Footer Button */}
-      <SafeAreaView edges={['bottom']} className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
-        <View className="p-4">
-          <TouchableOpacity className="w-full h-14 rounded-xl bg-[#10b981] items-center justify-center shadow-lg">
-            <Text className="text-white text-base font-bold">
-              Post Project - Pay ₹25 Escrow
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </SafeAreaView>
+      <View className="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 p-4">
+        <TouchableOpacity className="w-full h-14 rounded-xl bg-[#10b981] items-center justify-center shadow-lg">
+          <Text className="text-white text-base font-bold">
+            Post Project - Pay ₹25 Escrow
+          </Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }

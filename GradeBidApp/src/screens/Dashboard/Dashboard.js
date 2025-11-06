@@ -12,7 +12,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavigateToMaterials, onNavigateToChat, onNavigateToProjectCreation }) {
-  const [activeTab, setActiveTab] = useState('active'); // 'active', 'materials', 'mywork'
+  const [activeTab, setActiveTab] = useState('createtask'); // 'active', 'materials', 'mywork', 'createtask'
   const [activeRole, setActiveRole] = useState('find'); // 'find' or 'earn'
 
   const projects = [
@@ -125,9 +125,12 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
         <View className="px-4 py-3">
           <View className="h-10 flex-row items-center rounded-lg bg-gray-100 dark:bg-gray-800 p-1">
             <TouchableOpacity
-              onPress={() => setActiveRole('find')}
+              onPress={() => {
+                setActiveRole('find');
+                setActiveTab('createtask');
+              }}
               className={`flex-1 h-full items-center justify-center rounded-lg ${
-                activeRole === 'find' ? 'bg-[#34C759]' : ''
+                activeRole === 'find' ? 'bg-primary' : ''
               }`}
             >
               <Text
@@ -139,9 +142,12 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => setActiveRole('earn')}
+              onPress={() => {
+                setActiveRole('earn');
+                setActiveTab('active');
+              }}
               className={`flex-1 h-full items-center justify-center rounded-lg ${
-                activeRole === 'earn' ? 'bg-primary' : ''
+                activeRole === 'earn' ? 'bg-[#34C759]' : ''
               }`}
             >
               <Text
@@ -182,55 +188,98 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
         {/* Tabs */}
         <View className="pb-3">
           <View className="flex-row border-b border-gray-200 dark:border-gray-700 px-4">
-            <TouchableOpacity
-              onPress={() => setActiveTab('active')}
-              className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
-                activeTab === 'active' ? 'border-b-primary' : 'border-b-transparent'
-              }`}
-            >
-              <Text
-                className={`text-sm font-bold ${
-                  activeTab === 'active' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
-                }`}
-              >
-                Active Projects
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {
-                setActiveTab('materials');
-                onNavigateToMaterials();
-              }}
-              className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
-                activeTab === 'materials' ? 'border-b-primary' : 'border-b-transparent'
-              }`}
-            >
-              <Text
-                className={`text-sm font-bold ${
-                  activeTab === 'materials' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
-                }`}
-              >
-                Study Materials
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setActiveTab('mywork')}
-              className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
-                activeTab === 'mywork' ? 'border-b-primary' : 'border-b-transparent'
-              }`}
-            >
-              <Text
-                className={`text-sm font-bold ${
-                  activeTab === 'mywork' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
-                }`}
-              >
-                My Work
-              </Text>
-            </TouchableOpacity>
+            {activeRole === 'earn' ? (
+              <>
+                <TouchableOpacity
+                  onPress={() => setActiveTab('active')}
+                  className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
+                    activeTab === 'active' ? 'border-b-primary' : 'border-b-transparent'
+                  }`}
+                >
+                  <Text
+                    className={`text-sm font-bold ${
+                      activeTab === 'active' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
+                    }`}
+                  >
+                    Active Projects
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setActiveTab('mywork')}
+                  className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
+                    activeTab === 'mywork' ? 'border-b-primary' : 'border-b-transparent'
+                  }`}
+                >
+                  <Text
+                    className={`text-sm font-bold ${
+                      activeTab === 'mywork' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
+                    }`}
+                  >
+                    My Work
+                  </Text>
+                </TouchableOpacity>
+              </>
+            ) : (
+              <>
+                <TouchableOpacity
+                  onPress={() => setActiveTab('createtask')}
+                  className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
+                    activeTab === 'createtask' ? 'border-b-primary' : 'border-b-transparent'
+                  }`}
+                >
+                  <Text
+                    className={`text-sm font-bold ${
+                      activeTab === 'createtask' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
+                    }`}
+                  >
+                    My Tasks
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    setActiveTab('materials');
+                    onNavigateToMaterials();
+                  }}
+                  className={`flex-1 items-center pb-3 pt-4 border-b-[3px] ${
+                    activeTab === 'materials' ? 'border-b-primary' : 'border-b-transparent'
+                  }`}
+                >
+                  <Text
+                    className={`text-sm font-bold ${
+                      activeTab === 'materials' ? 'text-[#1C1C1E] dark:text-white' : 'text-[#8A8A8E] dark:text-gray-400'
+                    }`}
+                  >
+                    Study Materials
+                  </Text>
+                </TouchableOpacity>
+              </>
+            )}
           </View>
         </View>
 
         {/* Content based on active tab */}
+        {activeTab === 'createtask' && (
+          <View className="flex-col items-center justify-center p-8 gap-6">
+            <View className="w-32 h-32 rounded-full bg-gray-100 dark:bg-gray-800 items-center justify-center">
+              <MaterialIcons name="assignment" size={64} color="#8A8A8E" />
+            </View>
+            <View className="flex-col items-center gap-2">
+              <Text className="text-xl font-bold text-[#1C1C1E] dark:text-white text-center">
+                Create Your First Task
+              </Text>
+              <Text className="text-sm text-[#8A8A8E] dark:text-gray-400 text-center px-4">
+                Get help with your assignments, projects, or any academic work by creating a task
+              </Text>
+            </View>
+            <TouchableOpacity
+              onPress={onNavigateToProjectCreation}
+              className="w-full h-12 rounded-lg bg-primary items-center justify-center"
+            >
+              <Text className="text-base font-bold text-white">Create Task</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
         {activeTab === 'active' && (
           <View className="flex-col gap-4 p-4">
             {projects.map((project) => (

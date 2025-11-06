@@ -4,9 +4,11 @@ import Onboarding1 from './src/screens/Onboarding/Onboarding1';
 import Onboarding2 from './src/screens/Onboarding/Onboarding2';
 import Onboarding3 from './src/screens/Onboarding/Onboarding3';
 import LoginScreen from './src/screens/Auth/LoginScreen';
+import Dashboard from './src/screens/Dashboard/Dashboard';
+import './global.css';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState(1);
+  const [currentScreen, setCurrentScreen] = useState(1); 
 
   const handleNext = () => {
     if (currentScreen < 3) {
@@ -22,7 +24,7 @@ export default function App() {
 
   const handleLogin = () => {
     console.log('Login successful');
-    // Will navigate to dashboard later
+    setCurrentScreen('dashboard');
   };
 
   const renderScreen = () => {
@@ -40,6 +42,10 @@ export default function App() {
 
     if (currentScreen === 'login') {
       return <LoginScreen onLogin={handleLogin} />;
+    }
+
+    if (currentScreen === 'dashboard') {
+      return <Dashboard />;
     }
 
     return null;

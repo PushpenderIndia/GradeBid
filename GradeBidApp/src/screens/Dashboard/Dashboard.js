@@ -10,32 +10,77 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import ProjectDetails from '../Project/ProjectDetails';
 
 export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavigateToMaterials, onNavigateToChat, onNavigateToProjectCreation }) {
   const [activeTab, setActiveTab] = useState('createtask'); // 'active', 'materials', 'mywork', 'createtask'
   const [activeRole, setActiveRole] = useState('find'); // 'find' or 'earn'
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showProjectDetails, setShowProjectDetails] = useState(false);
 
   const projects = [
     {
       id: 1,
       title: 'Urgent: Calculus II Problem Set',
-      description: 'Need help solving a set of 10 differential equations. Must show all work clearly.',
+      description: 'Need help solving a set of 10 differential equations. Must show all work clearly. The solutions need to be detailed with step-by-step explanations.',
       budget: '₹1,500',
+      budgetMin: 1000,
+      budgetMax: 2000,
       deadline: 'Due in 2 days',
+      postedTime: '2 hours ago',
+      category: 'Mathematics',
+      client: {
+        name: 'Rahul Sharma',
+        rating: 4.8,
+        projectsPosted: 12,
+        location: 'Mumbai, India',
+      },
+      skills: ['Calculus', 'Mathematics', 'Problem Solving'],
+      attachments: 2,
+      bidsCount: 8,
+      avgBid: '₹1,350',
     },
     {
       id: 2,
       title: 'Python Code Debugging for ML',
-      description: 'My Keras model is not converging. Need an expert to review the code and identify the bug.',
+      description: 'My Keras model is not converging. Need an expert to review the code and identify the bug. Experience with TensorFlow and Keras required.',
       budget: '₹3,000',
+      budgetMin: 2500,
+      budgetMax: 3500,
       deadline: 'Due in 5 days',
+      postedTime: '5 hours ago',
+      category: 'Computer Science',
+      client: {
+        name: 'Priya Singh',
+        rating: 4.6,
+        projectsPosted: 8,
+        location: 'Bangalore, India',
+      },
+      skills: ['Python', 'Machine Learning', 'Keras', 'TensorFlow'],
+      attachments: 3,
+      bidsCount: 12,
+      avgBid: '₹2,800',
     },
     {
       id: 3,
       title: 'Proofread History Essay (10 pages)',
-      description: 'Looking for someone to proofread and provide feedback on an essay about the Roman Empire.',
+      description: 'Looking for someone to proofread and provide feedback on an essay about the Roman Empire. Need attention to grammar, style, and historical accuracy.',
       budget: '₹800',
+      budgetMin: 600,
+      budgetMax: 1000,
       deadline: 'Due tomorrow',
+      postedTime: '1 hour ago',
+      category: 'Literature',
+      client: {
+        name: 'Amit Kumar',
+        rating: 4.9,
+        projectsPosted: 15,
+        location: 'Delhi, India',
+      },
+      skills: ['Proofreading', 'History', 'English'],
+      attachments: 1,
+      bidsCount: 5,
+      avgBid: '₹750',
     },
   ];
 
@@ -307,7 +352,13 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
                     <Text className="text-sm text-[#8A8A8E]">{project.deadline}</Text>
                   </View>
                 </View>
-                <TouchableOpacity className="w-full h-10 items-center justify-center rounded-lg bg-primary">
+                <TouchableOpacity
+                  className="w-full h-10 items-center justify-center rounded-lg bg-primary"
+                  onPress={() => {
+                    setSelectedProject(project);
+                    setShowProjectDetails(true);
+                  }}
+                >
                   <Text className="text-sm font-bold text-white">Bid Now</Text>
                 </TouchableOpacity>
               </View>
@@ -422,21 +473,36 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
       </ScrollView>
 
       {/* Floating Action Button */}
-      <TouchableOpacity
-        className="absolute bottom-6 right-6 w-14 h-14 rounded-full bg-[#10b981] shadow-lg items-center justify-center"
-        onPress={onNavigateToProjectCreation}
-        activeOpacity={0.8}
-        style={{
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
-          shadowRadius: 4.65,
-          elevation: 8,
-        }}
-      >
-        <MaterialIcons name="add" size={28} color="white" />
-      </TouchableOpacity>
+      {!showProjectDetails && (
+        <TouchableOpacity
+          className="absolute bottom-6 right-6 w-14 h-14 rounded-full bg-[#10b981] shadow-lg items-center justify-center"
+          onPress={onNavigateToProjectCreation}
+          activeOpacity={0.8}
+          style={{
+            shadowColor: '#000',
+            shadowOffset: { width: 0, height: 4 },
+            shadowOpacity: 0.3,
+            shadowRadius: 4.65,
+            elevation: 8,
+          }}
+        >
+          <MaterialIcons name="add" size={28} color="white" />
+        </TouchableOpacity>
+      )}
       </View>
+
+      {/* Project Details Modal */}
+      {showProjectDetails && (
+        <View className="absolute inset-0 bg-white dark:bg-[#111621]">
+          <ProjectDetails
+            project={selectedProject}
+            onBack={() => {
+              setShowProjectDetails(false);
+              setSelectedProject(null);
+            }}
+          />
+        </View>
+      )}
     </SafeAreaView>
   );
 }

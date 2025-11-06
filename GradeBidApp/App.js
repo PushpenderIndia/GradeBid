@@ -9,6 +9,7 @@ import ProfileScreen from './src/screens/Profile/ProfileScreen';
 import AIDoubtSolver from './src/screens/AI/AIDoubtSolver';
 import StudyMaterialMarketplace from './src/screens/StudyMaterials/StudyMaterialMarketplace';
 import ChatTransactionManagement from './src/screens/Chat/ChatTransactionManagement';
+import ProjectCreation from './src/screens/Project/ProjectCreation';
 import './global.css';
 
 export default function App() {
@@ -51,6 +52,10 @@ export default function App() {
     setCurrentScreen('chat');
   };
 
+  const handleNavigateToProjectCreation = () => {
+    setCurrentScreen('projectCreation');
+  };
+
   const renderScreen = () => {
     if (currentScreen === 1) {
       return <Onboarding1 onNext={handleNext} onSkip={handleSkip} />;
@@ -75,6 +80,7 @@ export default function App() {
           onNavigateToAI={handleNavigateToAI}
           onNavigateToMaterials={handleNavigateToMaterials}
           onNavigateToChat={handleNavigateToChat}
+          onNavigateToProjectCreation={handleNavigateToProjectCreation}
         />
       );
     }
@@ -93,6 +99,10 @@ export default function App() {
 
     if (currentScreen === 'chat') {
       return <ChatTransactionManagement onBack={handleBackToDashboard} />;
+    }
+
+    if (currentScreen === 'projectCreation') {
+      return <ProjectCreation onBack={handleBackToDashboard} />;
     }
 
     return null;

@@ -11,7 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavigateToMaterials, onNavigateToChat }) {
+export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavigateToMaterials, onNavigateToChat, onNavigateToProjectCreation }) {
   const [activeTab, setActiveTab] = useState('active'); // 'active', 'materials', 'mywork'
   const [activeRole, setActiveRole] = useState('find'); // 'find' or 'earn'
 
@@ -39,8 +39,48 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
     },
   ];
 
+  const myWorkProjects = [
+    {
+      id: 1,
+      title: 'Data Structures Assignment Help',
+      client: 'Rajesh Kumar',
+      status: 'In Progress',
+      earning: '₹2,500',
+      deadline: 'Due in 3 days',
+      progress: 60,
+    },
+    {
+      id: 2,
+      title: 'Chemistry Lab Report Writing',
+      client: 'Priya Singh',
+      status: 'In Progress',
+      earning: '₹1,800',
+      deadline: 'Due in 5 days',
+      progress: 35,
+    },
+    {
+      id: 3,
+      title: 'Economics Research Paper',
+      client: 'Amit Sharma',
+      status: 'Under Review',
+      earning: '₹3,200',
+      deadline: 'Submitted',
+      progress: 100,
+    },
+    {
+      id: 4,
+      title: 'Java Programming Project',
+      client: 'Neha Patel',
+      status: 'Completed',
+      earning: '₹4,000',
+      deadline: 'Completed on 2 Nov',
+      progress: 100,
+    },
+  ];
+
   return (
     <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark">
+      <View className="flex-1">
       <ScrollView className="flex-1">
         {/* Top App Bar */}
         <View className="flex-row items-center justify-between px-4 pb-2 pt-4 bg-background-light dark:bg-background-dark">
@@ -190,40 +230,164 @@ export default function Dashboard({ onNavigateToProfile, onNavigateToAI, onNavig
           </View>
         </View>
 
-        {/* Project Cards */}
-        <View className="flex-col gap-4 p-4">
-          {projects.map((project) => (
-            <View
-              key={project.id}
-              className="flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm"
-            >
-              <View className="flex-col gap-1">
-                <Text className="text-base font-bold text-[#1C1C1E] dark:text-white">
-                  {project.title}
-                </Text>
-                <Text className="text-sm text-[#8A8A8E] dark:text-gray-400">
-                  {project.description}
-                </Text>
-              </View>
-              <View className="flex-row items-center justify-between">
-                <View className="flex-row items-center gap-1 px-2 py-1 rounded bg-green-500/10 dark:bg-green-500/20">
-                  <MaterialIcons name="sell" size={16} color="#10B981" />
-                  <Text className="text-sm font-semibold text-green-600 dark:text-green-400">
-                    Budget: {project.budget}
+        {/* Content based on active tab */}
+        {activeTab === 'active' && (
+          <View className="flex-col gap-4 p-4">
+            {projects.map((project) => (
+              <View
+                key={project.id}
+                className="flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm"
+              >
+                <View className="flex-col gap-1">
+                  <Text className="text-base font-bold text-[#1C1C1E] dark:text-white">
+                    {project.title}
+                  </Text>
+                  <Text className="text-sm text-[#8A8A8E] dark:text-gray-400">
+                    {project.description}
                   </Text>
                 </View>
-                <View className="flex-row items-center gap-1">
-                  <MaterialIcons name="timer" size={16} color="#8A8A8E" />
-                  <Text className="text-sm text-[#8A8A8E]">{project.deadline}</Text>
+                <View className="flex-row items-center justify-between">
+                  <View className="flex-row items-center gap-1 px-2 py-1 rounded bg-green-500/10 dark:bg-green-500/20">
+                    <MaterialIcons name="sell" size={16} color="#10B981" />
+                    <Text className="text-sm font-semibold text-green-600 dark:text-green-400">
+                      Budget: {project.budget}
+                    </Text>
+                  </View>
+                  <View className="flex-row items-center gap-1">
+                    <MaterialIcons name="timer" size={16} color="#8A8A8E" />
+                    <Text className="text-sm text-[#8A8A8E]">{project.deadline}</Text>
+                  </View>
                 </View>
+                <TouchableOpacity className="w-full h-10 items-center justify-center rounded-lg bg-primary">
+                  <Text className="text-sm font-bold text-white">Bid Now</Text>
+                </TouchableOpacity>
               </View>
-              <TouchableOpacity className="w-full h-10 items-center justify-center rounded-lg bg-primary">
-                <Text className="text-sm font-bold text-white">Bid Now</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
-        </View>
+            ))}
+          </View>
+        )}
+
+        {/* My Work Tab Content */}
+        {activeTab === 'mywork' && (
+          <View className="flex-col gap-4 p-4">
+            {myWorkProjects.map((project) => (
+              <View
+                key={project.id}
+                className="flex-col gap-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-gray-800 p-4 shadow-sm"
+              >
+                <View className="flex-row items-start justify-between">
+                  <View className="flex-1 flex-col gap-1">
+                    <Text className="text-base font-bold text-[#1C1C1E] dark:text-white">
+                      {project.title}
+                    </Text>
+                    <View className="flex-row items-center gap-1 mt-1">
+                      <MaterialIcons name="person" size={16} color="#8A8A8E" />
+                      <Text className="text-sm text-[#8A8A8E] dark:text-gray-400">
+                        Client: {project.client}
+                      </Text>
+                    </View>
+                  </View>
+                  <View
+                    className={`px-3 py-1 rounded-full ${
+                      project.status === 'In Progress'
+                        ? 'bg-blue-500/10 dark:bg-blue-500/20'
+                        : project.status === 'Under Review'
+                        ? 'bg-yellow-500/10 dark:bg-yellow-500/20'
+                        : 'bg-green-500/10 dark:bg-green-500/20'
+                    }`}
+                  >
+                    <Text
+                      className={`text-xs font-semibold ${
+                        project.status === 'In Progress'
+                          ? 'text-blue-600 dark:text-blue-400'
+                          : project.status === 'Under Review'
+                          ? 'text-yellow-600 dark:text-yellow-400'
+                          : 'text-green-600 dark:text-green-400'
+                      }`}
+                    >
+                      {project.status}
+                    </Text>
+                  </View>
+                </View>
+
+                {/* Progress Bar */}
+                {project.status !== 'Completed' && (
+                  <View className="flex-col gap-2">
+                    <View className="flex-row items-center justify-between">
+                      <Text className="text-xs text-[#8A8A8E] dark:text-gray-400">
+                        Progress
+                      </Text>
+                      <Text className="text-xs font-semibold text-[#1C1C1E] dark:text-white">
+                        {project.progress}%
+                      </Text>
+                    </View>
+                    <View className="w-full h-2 rounded-full bg-gray-200 dark:bg-gray-700">
+                      <View
+                        className="h-2 rounded-full bg-primary"
+                        style={{ width: `${project.progress}%` }}
+                      />
+                    </View>
+                  </View>
+                )}
+
+                <View className="flex-row items-center justify-between">
+                  <View className="flex-row items-center gap-1 px-2 py-1 rounded bg-green-500/10 dark:bg-green-500/20">
+                    <MaterialIcons name="payments" size={16} color="#10B981" />
+                    <Text className="text-sm font-semibold text-green-600 dark:text-green-400">
+                      Earning: {project.earning}
+                    </Text>
+                  </View>
+                  <View className="flex-row items-center gap-1">
+                    <MaterialIcons name="schedule" size={16} color="#8A8A8E" />
+                    <Text className="text-sm text-[#8A8A8E]">{project.deadline}</Text>
+                  </View>
+                </View>
+
+                {project.status === 'In Progress' && (
+                  <View className="flex-row gap-2">
+                    <TouchableOpacity className="flex-1 h-10 items-center justify-center rounded-lg border border-primary">
+                      <Text className="text-sm font-bold text-primary">View Details</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity className="flex-1 h-10 items-center justify-center rounded-lg bg-primary">
+                      <Text className="text-sm font-bold text-white">Submit Work</Text>
+                    </TouchableOpacity>
+                  </View>
+                )}
+
+                {project.status === 'Under Review' && (
+                  <TouchableOpacity className="w-full h-10 items-center justify-center rounded-lg border border-yellow-500">
+                    <Text className="text-sm font-bold text-yellow-600 dark:text-yellow-400">
+                      Waiting for Review
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
+                {project.status === 'Completed' && (
+                  <TouchableOpacity className="w-full h-10 items-center justify-center rounded-lg bg-green-600">
+                    <Text className="text-sm font-bold text-white">View Receipt</Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            ))}
+          </View>
+        )}
       </ScrollView>
+
+      {/* Floating Action Button */}
+      <TouchableOpacity
+        className="absolute bottom-6 right-6 w-14 h-14 rounded-full bg-[#10b981] shadow-lg items-center justify-center"
+        onPress={onNavigateToProjectCreation}
+        activeOpacity={0.8}
+        style={{
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.3,
+          shadowRadius: 4.65,
+          elevation: 8,
+        }}
+      >
+        <MaterialIcons name="add" size={28} color="white" />
+      </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }

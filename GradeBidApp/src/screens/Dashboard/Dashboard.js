@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState('active'); // 'active', 'materials', 'mywork'
@@ -107,22 +108,25 @@ export default function Dashboard() {
         </View>
 
         {/* AI Card */}
-        <View className="px-4 py-4">
-          <View className="rounded-xl p-4 shadow-lg" style={{
-            background: 'linear-gradient(135deg, #6A11CB 0%, #2575FC 100%)',
-            backgroundColor: '#6A11CB',
-          }}>
+        <View className="p-4">
+          <LinearGradient
+            colors={['#6A11CB', '#2575FC']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            className="flex-row items-center justify-between gap-4 p-4 shadow-lg"
+            style={{ borderRadius: 12 }}
+          >
             <View className="flex-col gap-3">
-              <View className="flex-row items-center gap-2">
+              <View className="flex-row items-center gap-2 text-white">
                 <MaterialIcons name="auto-awesome" size={24} color="white" />
                 <Text className="text-base font-bold text-white">Ask AI Any Doubt</Text>
               </View>
-              <TouchableOpacity className="flex-row-reverse items-center gap-1.5 w-fit h-8 px-3 rounded-lg bg-white/20">
+              <TouchableOpacity className="flex-row-reverse items-center justify-center h-8 px-3 rounded-lg bg-white/20 gap-1.5" style={{ alignSelf: 'flex-start', minWidth: 84, maxWidth: 480 }}>
                 <MaterialIcons name="photo-camera" size={18} color="white" />
                 <Text className="text-sm font-medium text-white">Quick Capture</Text>
               </TouchableOpacity>
             </View>
-          </View>
+          </LinearGradient>
         </View>
 
         {/* Tabs */}

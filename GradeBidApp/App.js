@@ -13,7 +13,7 @@ import ProjectCreation from './src/screens/Project/ProjectCreation';
 import './global.css';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('dashboard'); 
+  const [currentScreen, setCurrentScreen] = useState(1); 
 
   const handleNext = () => {
     if (currentScreen < 3) {
